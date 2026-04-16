@@ -1,0 +1,30 @@
+name: hardware_backed_dpop
+description: Hardware-backed DPoP binding and proof-signing primitives for Flutter.
+version: 0.1.0
+homepage: https://github.com/KevinHernot/hardware_backed_dpop
+repository: https://github.com/KevinHernot/hardware_backed_dpop
+issue_tracker: https://github.com/KevinHernot/hardware_backed_dpop/issues
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+  flutter: ">=3.22.0"
+
+dependencies:
+  crypto: ^3.0.6
+  flutter:
+    sdk: flutter
+  plugin_platform_interface: ^2.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.example.hardware_backed_dpop
+        pluginClass: HardwareBackedDpopPlugin
+      ios:
+        pluginClass: HardwareBackedDpopPlugin
