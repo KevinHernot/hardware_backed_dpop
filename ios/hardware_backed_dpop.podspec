@@ -11,7 +11,7 @@ Hardware-backed DPoP binding and proof-signing primitives for Flutter.
                        DESC
   s.homepage         = 'https://github.com/KevinHernot/hardware_backed_dpop'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Kevin Hernot' => 'kevinhernot@hopenapp.com' }
+  s.author           = 'Kevin Hernot'
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'

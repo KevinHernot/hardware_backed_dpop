@@ -6,7 +6,7 @@
 
 Hardware-backed DPoP binding and proof-signing primitives for Flutter apps.
 
-`hardware_backed_dpop` is an open-source extraction from Hopen's mobile authentication stack. It focuses on one narrow but high-value job: minting a stable ES256 DPoP binding in the platform keystore, exposing the public binding material needed by the backend, and signing JWS inputs without exporting the private key.
+`hardware_backed_dpop` is a Flutter package for hardware-backed DPoP bindings and proof signing. It focuses on one narrow but high-value job: minting a stable ES256 DPoP binding in the platform keystore, exposing the public binding material needed by the backend, and signing JWS inputs without exporting the private key.
 
 ## Status
 
