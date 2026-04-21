@@ -11,7 +11,6 @@ This package intentionally starts small.
 
 ## Likely Next Extractions
 
-- nonce challenge helpers for automatic retry flows
 - a backend verification reference implementation
 - a small request interceptor package for HTTP / gRPC clients
 - optional key-attestation support where platform guarantees make it practical

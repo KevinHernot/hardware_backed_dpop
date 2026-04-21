@@ -17,6 +17,20 @@
 - `jkt`: RFC 7638 JWK thumbprint for server-side binding lookup
 - `jwk`: public JWK map suitable for the DPoP JWT header
 
+### `DpopNonceHandler`
+
+- `currentNonce`: the latest captured nonce
+- `captureNonceFromMetadata(metadata)`: case-insensitive extraction of `dpop-nonce`
+- `extractChallenge(...)`: parses `use_dpop_nonce` challenges and returns `DpopNonceChallenge`
+- `setCurrentNonce(nonce)` / `clear()`: explicit nonce state management
+- `isUseDpopNonceChallenge(...)`: static challenge-signal classifier
+- `metadataValueCaseInsensitive(...)`: static metadata helper for mixed header maps
+
+### `DpopNonceChallenge`
+
+- `nonce`: server-issued nonce that should be used on retry
+- `wwwAuthenticate`: optional `WWW-Authenticate` value from the challenge
+
 ## Proof Builder Notes
 
 `buildProof(...)` accepts:

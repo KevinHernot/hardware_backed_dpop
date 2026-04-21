@@ -7,6 +7,7 @@ import 'hardware_backed_dpop_platform_interface.dart';
 import 'src/dpop_binding_material.dart';
 
 export 'src/dpop_binding_material.dart';
+export 'src/dpop_nonce_challenge.dart';
 
 final Random _secureRandom = Random.secure();
 

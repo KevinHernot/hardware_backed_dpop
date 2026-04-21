@@ -19,6 +19,7 @@ Experimental, but real and usable.
 - public binding export as raw public key, JWK, and RFC 7638 thumbprint (`jkt`)
 - JWS signing through the platform keystore so the private key never leaves native storage
 - a Dart helper for building DPoP proofs with `ath` and `nonce` support
+- nonce challenge helpers for `use_dpop_nonce` retry flows
 
 ## Quick Start
 
@@ -38,6 +39,35 @@ final proof = await dpop.buildProof(
 );
 
 print(proof);
+```
+
+## Nonce Challenge Handling
+
+When your backend responds with `use_dpop_nonce`, parse and store the nonce,
+then retry once with a fresh proof.
+
+```dart
+final nonceHandler = DpopNonceHandler();
+
+// On successful responses, capture any proactive nonce rotation.
+nonceHandler.captureNonceFromMetadata(responseHeaders);
+
+// On errors, parse nonce challenge metadata.
+final challenge = nonceHandler.extractChallenge(
+  metadata: errorHeaders,
+  errorCode: errorCode,
+  errorMessage: errorMessage,
+);
+
+if (challenge != null) {
+  final retryProof = await dpop.buildProof(
+    htu: '/hopen.auth.v1.AuthService/RefreshToken',
+    htm: 'POST',
+    accessToken: accessToken,
+    nonce: challenge.nonce,
+  );
+  // retry request once with retryProof
+}
 ```
 
 ## Full-Stack Integration Notes
@@ -73,4 +103,3 @@ flutter test
 ## License
 
 Released under the [MIT](LICENSE) license.
-
